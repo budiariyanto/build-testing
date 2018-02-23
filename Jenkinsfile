@@ -1,10 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('Checking') {
+    stage('Build') {
       steps {
-        echo 'Running ansible...'
         sh 'pwd'
+        dir(path: '/home/budi/development/build')
+        git(url: 'https://github.com/budiariyanto/build-testing', branch: 'master', changelog: true)
       }
     }
   }

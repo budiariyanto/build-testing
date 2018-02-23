@@ -4,8 +4,10 @@ pipeline {
     stage('Build') {
       agent any
       steps {
-        dir(path: '/home/budi/development/build')
-        git(url: 'git@github.com:budiariyanto/build-testing', branch: 'master', changelog: true)
+        dir(path: '/home/budi/development/build') {
+          git(url: 'git@github.com:budiariyanto/build-testing', branch: '$GIT_BRANCH', changelog: true)
+        }
+        
       }
     }
   }

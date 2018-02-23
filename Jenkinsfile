@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Checking') {
       steps {
-        echo 'Check running'
+        echo 'Running ansible...'
+        sh 'pwd'
       }
     }
   }

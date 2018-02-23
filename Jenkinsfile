@@ -3,10 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'pwd'
-        dir(path: '/home/budi/development/build')
-        git(url: 'https://github.com/budiariyanto/build-testing', branch: 'master', changelog: true)
+        sh 'echo "Hello world"'
       }
     }
+  }
+  environment {
+    GIT_BRANCH = 'master'
   }
 }

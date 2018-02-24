@@ -17,7 +17,8 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '/home/budi/development/sdk/go/bin/go build -o /home/budi/Desktop/build-testing'
+        sh '''/home/budi/development/sdk/go/bin/go build
+ls -la'''
       }
     }
     stage('Deploy') {

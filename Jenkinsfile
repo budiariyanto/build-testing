@@ -2,8 +2,17 @@ pipeline {
   agent any
   stages {
     stage('Test') {
-      steps {
-        sh '/home/budi/development/sdk/go/bin/go test -v'
+      parallel {
+        stage('Test') {
+          steps {
+            sh '/home/budi/development/sdk/go/bin/go test -v'
+          }
+        }
+        stage('Check dir') {
+          steps {
+            sh 'pwd'
+          }
+        }
       }
     }
     stage('Build') {

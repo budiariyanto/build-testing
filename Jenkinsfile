@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'go test -v'
+        sh '/home/budi/development/sdk/go/bin/go test -v'
       }
     }
     stage('Build') {
       steps {
-        sh 'go build'
+        sh '/home/budi/development/sdk/go/bin/go build'
       }
     }
     stage('Deploy') {

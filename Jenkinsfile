@@ -1,13 +1,19 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('Build') {
-      agent any
+    stage('Test') {
       steps {
-        dir(path: '/home/budi/development/build') {
-          git(url: 'git@github.com:budiariyanto/build-testing', branch: '$GIT_BRANCH', changelog: true)
-        }
-        
+        sh 'go test -v'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'go build'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        sh 'cp build-testing /home/budi/Desktop'
       }
     }
   }

@@ -6,14 +6,9 @@ pipeline {
         sh '/home/budi/development/sdk/go/bin/go test -v'
       }
     }
-    stage('Build') {
+    stage('Build And Deploy') {
       steps {
-        sh '/home/budi/development/sdk/go/bin/go build'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh 'cp build-testing /home/budi/Desktop'
+        sh '/home/budi/development/sdk/go/bin/go build -o /home/budi/Desktop'
       }
     }
   }

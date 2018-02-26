@@ -1,10 +1,16 @@
 pipeline {
   agent any
   parameters {
-        string(name: 'Git SHA1 Hash', defaultValue: 'master', description:
+        string(name: 'GIT_REVISION', defaultValue: 'master', description:
         'Fuck Jenkins')
     }
   stages {
+    state('Clone') {
+      steps {
+        git clone git@github.com:budiariyanto/build-testing.git
+        git checkout $(params.GIT_REVISION)
+      }
+    }
     stage('Test') {
       steps {
         sh '/home/budi/development/sdk/go/bin/go test -v'

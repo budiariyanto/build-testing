@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  parameters {
+        string(name: 'Git SHA1 Hash', defaultValue: 'master', description:
+        'Fuck Jenkins')
+    }
   stages {
     stage('Test') {
       steps {
